@@ -1,0 +1,53 @@
+[gd_scene load_steps=8 format=3 uid="uid://tyo8wvpv54go"]
+
+[ext_resource type="Script" path="res://scripts/createWall.gd" id="1_s7ar8"]
+[ext_resource type="Script" path="res://scripts/player.gd" id="2_pk5og"]
+[ext_resource type="Texture2D" uid="uid://d1ec3bfs27o1f" path="res://assets/Player/Poses/player_idle.png" id="3_4xp5i"]
+[ext_resource type="Texture2D" uid="uid://crl4p0sxdsktn" path="res://assets/Player/Poses/player_walk1.png" id="4_enskm"]
+[ext_resource type="Texture2D" uid="uid://k3nrfkgv3vm5" path="res://assets/Player/Poses/player_walk2.png" id="5_ernma"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ex5oc"]
+size = Vector2(50, 71)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xmhop"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_4xp5i")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_enskm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ernma")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 2.0
+}]
+
+[node name="mainScene" type="Node2D"]
+metadata/_edit_lock_ = true
+
+[node name="createWall" type="Node2D" parent="."]
+script = ExtResource("1_s7ar8")
+metadata/_edit_lock_ = true
+
+[node name="player" type="CharacterBody2D" parent="."]
+texture_filter = 1
+position = Vector2(559, 271)
+script = ExtResource("2_pk5og")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player"]
+position = Vector2(1, 19.5)
+shape = SubResource("RectangleShape2D_ex5oc")
+metadata/_edit_lock_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="player"]
+sprite_frames = SubResource("SpriteFrames_xmhop")
+animation = &"idle"

@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://o8kq13troboj"]
+
+[ext_resource type="Texture2D" uid="uid://bsof0kocvb56a" path="res://assets/white_texture.jpg" id="1_h4ota"]
+
+[sub_resource type="Shader" id="Shader_pqbtk"]
+code = "shader_type canvas_item;
+
+void fragment() {
+	COLOR = vec4(0.0, 0.0, 0.0, 1.0);
+	// Place fragment code here.
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nsnfr"]
+shader = SubResource("Shader_pqbtk")
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_jk8wd"]
+
+[node name="wall" type="StaticBody2D"]
+material = SubResource("ShaderMaterial_nsnfr")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("SegmentShape2D_jk8wd")
+
+[node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D"]
+position = Vector2(182, 3)
+scale = Vector2(0.0605, 0.00125)
+texture = ExtResource("1_h4ota")
