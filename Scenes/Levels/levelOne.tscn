@@ -9,15 +9,14 @@
 
 [node name="createWall" type="Node2D" parent="."]
 script = ExtResource("1_3s36t")
+nbWall = 5
 metadata/_edit_lock_ = true
 
-[node name="playerGroup" type="Node" parent="."]
-
-[node name="player" parent="playerGroup" instance=ExtResource("2_moj1y")]
-position = Vector2(409, 123)
-
-[node name="player2" parent="playerGroup" instance=ExtResource("2_moj1y")]
-position = Vector2(672, 124)
+[node name="nbWallText" type="RichTextLabel" parent="createWall"]
+offset_left = 25.0
+offset_top = 25.0
+offset_right = 65.0
+offset_bottom = 65.0
 
 [node name="buttonLogic" type="Node" parent="."]
 script = ExtResource("2_r3yxr")
@@ -27,3 +26,11 @@ position = Vector2(413, 287)
 
 [node name="button2" parent="buttonLogic" instance=ExtResource("4_cp8j3")]
 position = Vector2(943, 298)
+
+[node name="playerGroup" type="Node" parent="."]
+
+[node name="player" parent="playerGroup" instance=ExtResource("2_moj1y")]
+position = Vector2(409, 123)
+
+[node name="player2" parent="playerGroup" instance=ExtResource("2_moj1y")]
+position = Vector2(672, 124)

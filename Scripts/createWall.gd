@@ -5,6 +5,9 @@ const WALL_SCENE = preload("res://Scenes/Prefabs/wall.tscn")
 const WALL_TEXTURE = preload("res://Assets/Wall/wall_fill.png")
 const TEXTURE_LENGTH = 32
 
+@onready var nbWallText = $nbWallText
+@export var nbWall: int
+
 var firstVertex: Vector2 = Vector2.ZERO
 var wallCount: int = 0
 var newWall = null
@@ -13,7 +16,7 @@ var sprite2D = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	nbWallText.text = str(nbWall)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -34,12 +37,14 @@ func checkMouseClick(event):
 	if (event is InputEventMouseButton
 	&& event.button_index == MOUSE_BUTTON_LEFT
 	&& event.pressed):
-		if (newWall == null):
-			firstVertex = event.position			
+		if (newWall == null && nbWall > 0):
+			firstVertex = event.position
 			initWall()
-		else:
+		elif (nbWall > 0):
 			createWall(event.position)
 			newWall = null
+			nbWall -= 1
+			updateNbWallText()
 	elif (event is InputEventMouseMotion && newWall != null):
 		updateWallBlueprint(event.position)
 	
@@ -55,14 +60,16 @@ func initWall():
 	sprite2D.scale.x = Vector2.ZERO.length()
 	add_child(newWall)
 
+func updateWallBlueprint(secondVertex: Vector2):
+	var vector: Vector2 = secondVertex - firstVertex
+	sprite2D.position = (firstVertex + secondVertex) / 2
+	sprite2D.rotation = vector.angle()
+	sprite2D.scale.x = vector.length() / TEXTURE_LENGTH
+	
 func createWall(secondVertex: Vector2):
 	sprite2D.texture = WALL_TEXTURE
 	collisionShape2D.shape.a = firstVertex	
 	collisionShape2D.shape.b = secondVertex
 
-func updateWallBlueprint(secondVertex: Vector2):
-	var vector: Vector2 = secondVertex - firstVertex
-	sprite2D.position = (firstVertex + secondVertex) / 2
-	sprite2D.rotation = vector.angle()
-	#6000 is an arbitrary value found by testing 
-	sprite2D.scale.x = vector.length() / TEXTURE_LENGTH
+func updateNbWallText():
+	nbWallText.text = str(nbWall)
