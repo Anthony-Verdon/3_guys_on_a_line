@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://o8kq13troboj"]
 
-[ext_resource type="Texture2D" uid="uid://bsof0kocvb56a" path="res://Assets/white_texture.jpg" id="1_h4ota"]
+[ext_resource type="Texture2D" uid="uid://bly05f0ry2o3f" path="res://Assets/Wall/wall_blueprint.png" id="1_14a4x"]
 
 [sub_resource type="Shader" id="Shader_pqbtk"]
 code = "shader_type canvas_item;
@@ -24,6 +24,6 @@ metadata/_edit_lock_ = true
 shape = SubResource("SegmentShape2D_jk8wd")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(182, 3)
-scale = Vector2(0.0605, 0.00125)
-texture = ExtResource("1_h4ota")
+position = Vector2(16, 1.5)
+scale = Vector2(1, 0.09375)
+texture = ExtResource("1_14a4x")
