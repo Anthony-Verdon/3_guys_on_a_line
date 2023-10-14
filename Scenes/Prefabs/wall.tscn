@@ -23,7 +23,7 @@ metadata/_edit_lock_ = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("SegmentShape2D_jk8wd")
 
-[node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D"]
+[node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(182, 3)
 scale = Vector2(0.0605, 0.00125)
 texture = ExtResource("1_h4ota")

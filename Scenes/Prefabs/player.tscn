@@ -1,9 +1,9 @@
 [gd_scene load_steps=7 format=3 uid="uid://dy86b6b8xm78j"]
 
-[ext_resource type="Script" path="res://Scripts/player.gd" id="1_jjlqr"]
-[ext_resource type="Texture2D" uid="uid://d1ec3bfs27o1f" path="res://Assets/Player/Poses/player_idle.png" id="2_nc1st"]
-[ext_resource type="Texture2D" uid="uid://crl4p0sxdsktn" path="res://Assets/Player/Poses/player_walk1.png" id="3_boy4y"]
-[ext_resource type="Texture2D" uid="uid://k3nrfkgv3vm5" path="res://Assets/Player/Poses/player_walk2.png" id="4_j5nc4"]
+[ext_resource type="Script" path="res://Scripts/player.gd" id="1_85b4r"]
+[ext_resource type="Texture2D" uid="uid://d1ec3bfs27o1f" path="res://Assets/Player/Poses/player_idle.png" id="2_2g35t"]
+[ext_resource type="Texture2D" uid="uid://crl4p0sxdsktn" path="res://Assets/Player/Poses/player_walk1.png" id="3_i8f22"]
+[ext_resource type="Texture2D" uid="uid://k3nrfkgv3vm5" path="res://Assets/Player/Poses/player_walk2.png" id="4_t10ta"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ex5oc"]
 size = Vector2(50, 71)
@@ -12,7 +12,7 @@ size = Vector2(50, 71)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_nc1st")
+"texture": ExtResource("2_2g35t")
 }],
 "loop": true,
 "name": &"idle",
@@ -20,10 +20,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_boy4y")
+"texture": ExtResource("3_i8f22")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_j5nc4")
+"texture": ExtResource("4_t10ta")
 }],
 "loop": true,
 "name": &"walk",
@@ -32,8 +32,7 @@ animations = [{
 
 [node name="player" type="CharacterBody2D" groups=["player"]]
 texture_filter = 1
-position = Vector2(559, 271)
-script = ExtResource("1_jjlqr")
+script = ExtResource("1_85b4r")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1, 19.5)

@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://b42ejuce0c4c"]
+
+[ext_resource type="Script" path="res://Scripts/createWall.gd" id="1_71nfw"]
+[ext_resource type="Script" path="res://Scripts/buttonLogic.gd" id="2_kli1l"]
+
+[node name="levelBluePrint" type="Node2D"]
+
+[node name="createWall" type="Node2D" parent="."]
+script = ExtResource("1_71nfw")
+metadata/_edit_lock_ = true
+
+[node name="playerGroup" type="Node" parent="."]
+
+[node name="buttonLogic" type="Node" parent="."]
+script = ExtResource("2_kli1l")

@@ -1,10 +1,11 @@
 extends Node2D
 
 const MOUSE_BUTTON_LEFT = 1;
-const WALL_SCENE = preload("res://Scenes/wall.tscn")
+const WALL_SCENE = preload("res://Scenes/Prefabs/wall.tscn")
 
 var firstVertex: Vector2 = Vector2.ZERO
 var wallCount: int = 0
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -14,6 +15,9 @@ func _process(delta):
 	pass
 
 func _input(event):
+	checkMouseClick(event)
+
+func checkMouseClick(event):
 	if (event is InputEventMouseButton
 	&& event.button_index == MOUSE_BUTTON_LEFT
 	&& event.pressed):
@@ -28,7 +32,7 @@ func initWall(firstVertex: Vector2, secondVertex: Vector2):
 	var vector: Vector2 = secondVertex - firstVertex
 	var newWall = WALL_SCENE.instantiate()
 	var collisionShape2D = newWall.get_child(0)
-	var sprite2D = collisionShape2D.get_child(0)
+	var sprite2D = newWall.get_child(1)
 	newWall.name = "Wall_" + str(wallCount)
 	wallCount += 1
 	collisionShape2D.shape = SegmentShape2D.new()
