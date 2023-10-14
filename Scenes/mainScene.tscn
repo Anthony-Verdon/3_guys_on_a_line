@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://tyo8wvpv54go"]
+
+[ext_resource type="Script" path="res://Scripts/createWall.gd" id="1_luj5n"]
+[ext_resource type="PackedScene" uid="uid://cjiaqh2uu8fp6" path="res://Scenes/button.tscn" id="2_w6h5w"]
+[ext_resource type="PackedScene" uid="uid://dy86b6b8xm78j" path="res://Scenes/player.tscn" id="3_c7uut"]
+[ext_resource type="Script" path="res://Scenes/buttonLogic.gd" id="3_e8c1m"]
+
+[node name="mainScene" type="Node2D"]
+metadata/_edit_lock_ = true
+
+[node name="createWall" type="Node2D" parent="."]
+script = ExtResource("1_luj5n")
+metadata/_edit_lock_ = true
+
+[node name="player" parent="." instance=ExtResource("3_c7uut")]
+
+[node name="player2" parent="." instance=ExtResource("3_c7uut")]
+position = Vector2(700, 267)
+
+[node name="buttonLogic" type="Node2D" parent="."]
+script = ExtResource("3_e8c1m")
+
+[node name="button" parent="buttonLogic" instance=ExtResource("2_w6h5w")]
+
+[node name="button2" parent="buttonLogic" instance=ExtResource("2_w6h5w")]
+position = Vector2(272, 181)
