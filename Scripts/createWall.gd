@@ -20,7 +20,15 @@ func _process(delta):
 	pass
 
 func _input(event):
+	checkEscapeKey(event)
 	checkMouseClick(event)
+
+func checkEscapeKey(event):
+	if (event is InputEventKey
+	&& newWall != null
+	&& event.as_text_key_label() == "Escape"):
+		newWall.queue_free()
+		newWall = null
 
 func checkMouseClick(event):
 	if (event is InputEventMouseButton
