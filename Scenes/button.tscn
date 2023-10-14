@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cjiaqh2uu8fp6"]
 
-[ext_resource type="Script" path="res://Scenes/button.gd" id="1_eepvt"]
+[ext_resource type="Script" path="res://Scripts/button.gd" id="1_qjcvm"]
 [ext_resource type="Texture2D" uid="uid://gnrh012204gx" path="res://Assets/Button/red_button_released.png" id="2_2nenr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gfor4"]
@@ -9,7 +9,7 @@ size = Vector2(45, 46)
 [node name="button" type="Area2D"]
 texture_filter = 1
 position = Vector2(592, 186)
-script = ExtResource("1_eepvt")
+script = ExtResource("1_qjcvm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 0)

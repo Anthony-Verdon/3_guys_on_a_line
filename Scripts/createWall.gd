@@ -31,9 +31,11 @@ func initWall(firstVertex: Vector2, secondVertex: Vector2):
 	var sprite2D = collisionShape2D.get_child(0)
 	newWall.name = "Wall_" + str(wallCount)
 	wallCount += 1
+	collisionShape2D.shape = SegmentShape2D.new()
 	collisionShape2D.shape.a = firstVertex
 	collisionShape2D.shape.b = secondVertex
 	sprite2D.position = (firstVertex + secondVertex) / 2
 	sprite2D.rotation = vector.angle()
+	#6000 is an arbitrary value found by testing 
 	sprite2D.scale.x = vector.length() / 6000
 	add_child(newWall)
