@@ -1,8 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://dys773hxbcslg"]
+[gd_scene load_steps=6 format=3 uid="uid://dys773hxbcslg"]
 
 [ext_resource type="Script" path="res://Scripts/createWall.gd" id="1_xbbd1"]
 [ext_resource type="Script" path="res://Scripts/buttonLogic.gd" id="2_73wn0"]
 [ext_resource type="Script" path="res://Scripts/tutorialLogic.gd" id="3_saqhw"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_oi51v"]
+a = Vector2(0, -326)
+b = Vector2(0, 327)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_nvow6"]
+a = Vector2(574, 0)
+b = Vector2(-579, -1)
 
 [node name="tutorial" type="Node2D"]
 
@@ -46,6 +54,32 @@ text = "menu"
 [node name="retryButton" type="Button" parent="HBoxContainer"]
 layout_mode = 2
 text = "retry"
+
+[node name="borders" type="Node2D" parent="."]
+
+[node name="leftBorder" type="StaticBody2D" parent="borders"]
+position = Vector2(0, 325)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="borders/leftBorder"]
+shape = SubResource("SegmentShape2D_oi51v")
+
+[node name="rightBorder" type="StaticBody2D" parent="borders"]
+position = Vector2(1152, 325)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="borders/rightBorder"]
+shape = SubResource("SegmentShape2D_oi51v")
+
+[node name="topBorder" type="StaticBody2D" parent="borders"]
+position = Vector2(581, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="borders/topBorder"]
+shape = SubResource("SegmentShape2D_nvow6")
+
+[node name="bottomBorder" type="StaticBody2D" parent="borders"]
+position = Vector2(581, 646)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="borders/bottomBorder"]
+shape = SubResource("SegmentShape2D_nvow6")
 
 [connection signal="pressed" from="HBoxContainer/menuButton" to="tutorialLogic" method="_on_menu_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/retryButton" to="tutorialLogic" method="_on_retry_button_pressed"]

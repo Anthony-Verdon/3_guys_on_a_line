@@ -15,7 +15,6 @@ func _process(delta):
 func checkEndOfLevel():
 	for child in get_children():
 		if (child.name != "winText" && !child.isPressed):
-			print(child.name)
 			return
 	if (get_tree().current_scene.name != "tutorial"):
 		winText.visible = true

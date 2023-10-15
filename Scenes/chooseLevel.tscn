@@ -41,6 +41,17 @@ text = "Tutorial"
 layout_mode = 2
 text = "levelOne"
 
+[node name="levelTwoButton" type="Button" parent="levelsButtonsContainer"]
+layout_mode = 2
+text = "levelTwo"
+
+[node name="levelThreeButton" type="Button" parent="levelsButtonsContainer"]
+layout_mode = 2
+text = "levelThree
+"
+
 [connection signal="pressed" from="menuButton" to="." method="_on_menu_button_pressed"]
 [connection signal="pressed" from="levelsButtonsContainer/tutorialButton" to="." method="_on_tutorial_button_pressed"]
 [connection signal="pressed" from="levelsButtonsContainer/levelOneButton" to="." method="_on_level_one_button_pressed"]
+[connection signal="pressed" from="levelsButtonsContainer/levelTwoButton" to="." method="_on_level_two_button_pressed"]
+[connection signal="pressed" from="levelsButtonsContainer/levelThreeButton" to="." method="_on_level_three_button_pressed"]

@@ -1,10 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://b2bcsb02roqdn"]
+[gd_scene load_steps=8 format=3 uid="uid://xjx3v5koieu0"]
 
-[ext_resource type="Script" path="res://Scripts/createWall.gd" id="1_3s36t"]
-[ext_resource type="PackedScene" uid="uid://dy86b6b8xm78j" path="res://Scenes/Prefabs/player.tscn" id="2_moj1y"]
-[ext_resource type="Script" path="res://Scripts/buttonLogic.gd" id="2_r3yxr"]
-[ext_resource type="PackedScene" uid="uid://cjiaqh2uu8fp6" path="res://Scenes/Prefabs/button.tscn" id="4_cp8j3"]
-[ext_resource type="Script" path="res://Scripts/level.gd" id="5_4uxwt"]
+[ext_resource type="Script" path="res://Scripts/createWall.gd" id="1_rg8lh"]
+[ext_resource type="Script" path="res://Scripts/buttonLogic.gd" id="2_xkvfg"]
+[ext_resource type="PackedScene" uid="uid://cjiaqh2uu8fp6" path="res://Scenes/Prefabs/button.tscn" id="3_pmmds"]
+[ext_resource type="PackedScene" uid="uid://dy86b6b8xm78j" path="res://Scenes/Prefabs/player.tscn" id="4_mncm6"]
+[ext_resource type="Script" path="res://Scripts/level.gd" id="5_whad7"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_1g0qc"]
 a = Vector2(0, -317)
@@ -17,8 +17,8 @@ b = Vector2(-587, -1)
 [node name="levelBluePrint" type="Node2D"]
 
 [node name="createWall" type="Node2D" parent="."]
-script = ExtResource("1_3s36t")
-nbWall = 1
+script = ExtResource("1_rg8lh")
+nbWall = 2
 metadata/_edit_lock_ = true
 
 [node name="nbWallText" type="RichTextLabel" parent="createWall"]
@@ -31,7 +31,7 @@ fit_content = true
 scroll_active = false
 
 [node name="buttonLogic" type="Node2D" parent="."]
-script = ExtResource("2_r3yxr")
+script = ExtResource("2_xkvfg")
 
 [node name="winText" type="RichTextLabel" parent="buttonLogic"]
 visible = false
@@ -42,32 +42,38 @@ text = "[center]Level solved ![/center]"
 fit_content = true
 scroll_active = false
 
-[node name="button" parent="buttonLogic" instance=ExtResource("4_cp8j3")]
-position = Vector2(370, 334)
+[node name="button" parent="buttonLogic" instance=ExtResource("3_pmmds")]
+position = Vector2(347, 86)
 
-[node name="button2" parent="buttonLogic" instance=ExtResource("4_cp8j3")]
-position = Vector2(582, 337)
+[node name="button2" parent="buttonLogic" instance=ExtResource("3_pmmds")]
+position = Vector2(821, 84)
 
-[node name="button3" parent="buttonLogic" instance=ExtResource("4_cp8j3")]
-position = Vector2(829, 339)
+[node name="button3" parent="buttonLogic" instance=ExtResource("3_pmmds")]
+position = Vector2(346, 486)
+
+[node name="button4" parent="buttonLogic" instance=ExtResource("3_pmmds")]
+position = Vector2(831, 494)
 
 [node name="playerGroup" type="Node" parent="."]
 
-[node name="player" parent="playerGroup" instance=ExtResource("2_moj1y")]
-position = Vector2(473, 231)
+[node name="player" parent="playerGroup" instance=ExtResource("4_mncm6")]
+position = Vector2(499, 195)
 
-[node name="player2" parent="playerGroup" instance=ExtResource("2_moj1y")]
-position = Vector2(585, 225)
+[node name="player2" parent="playerGroup" instance=ExtResource("4_mncm6")]
+position = Vector2(695, 195)
 
-[node name="player3" parent="playerGroup" instance=ExtResource("2_moj1y")]
-position = Vector2(694, 230)
+[node name="player3" parent="playerGroup" instance=ExtResource("4_mncm6")]
+position = Vector2(498, 370)
+
+[node name="player4" parent="playerGroup" instance=ExtResource("4_mncm6")]
+position = Vector2(696, 368)
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 offset_left = 25.0
 offset_top = 25.0
 offset_right = 128.0
 offset_bottom = 65.0
-script = ExtResource("5_4uxwt")
+script = ExtResource("5_whad7")
 
 [node name="menuButton" type="Button" parent="HBoxContainer"]
 layout_mode = 2
