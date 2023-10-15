@@ -25,8 +25,12 @@ offset_top = 65.0
 offset_right = 65.0
 offset_bottom = 105.0
 
-[node name="buttonLogic" type="Node" parent="."]
+[node name="buttonLogic" type="Node2D" parent="."]
 script = ExtResource("2_73wn0")
+
+[node name="winText" type="RichTextLabel" parent="buttonLogic"]
+offset_right = 40.0
+offset_bottom = 40.0
 
 [node name="playerGroup" type="Node" parent="."]
 

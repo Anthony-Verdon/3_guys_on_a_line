@@ -7,8 +7,9 @@ const LEARN_TO_MOVE_TEXT = "[center]To move, press arrows keys ![/center]"
 const PRESS_BUTTON_TEXT = "[center]To finish a level, you need to press all the buttons at the same time ![/center]"
 const CONTROL_MULTIPLE_PLAYER_TEXT = "[center]During the game, you will control multiple players ![/center]"
 const CREATE_WALL_TEXT = "[center]You can create wall to resolve the enigm by left-clicking twice ![/center]"
+const CANCEL_WALL_TEXT = "[center]You can cancel the creation of a wall by pressing Escape ![/center]"
 const MAX_NB_WALL_TEXT = "[center]You have a limited number of wall by level ! Check the top left corner to see it ![/center]"
-const END_TUTORIAL_TEXT = "[center]Well done ! You can now start to play ![/center]"
+const END_TUTORIAL_TEXT = "[center]You can now start to play ![/center]"
 const BUTTON_LOGIC_NODE_INDEX = 1
 const PLAYER_GROUP_NODE_INDEX = 2
 
@@ -35,8 +36,10 @@ func _process(delta):
 			4:
 				call("createWall")
 			5:
-				tutorialText.text = MAX_NB_WALL_TEXT
+				tutorialText.text = CANCEL_WALL_TEXT
 			6:
+				tutorialText.text = MAX_NB_WALL_TEXT
+			7:
 				tutorialText.text = END_TUTORIAL_TEXT
 		newStep = false
 	pass
@@ -65,7 +68,7 @@ func controlMultiplePlayer():
 	tutorialText.text = CONTROL_MULTIPLE_PLAYER_TEXT
 
 func createWall():
-	var nodeInstance = get_parent().get_child(BUTTON_LOGIC_NODE_INDEX).get_child(0)
+	var nodeInstance = get_parent().get_node("buttonLogic/button")
 	instantiateNode(BUTTON_SCENE, BUTTON_LOGIC_NODE_INDEX, nodeInstance.position + Vector2(200, 0))
 	tutorialText.text = CREATE_WALL_TEXT
 	
