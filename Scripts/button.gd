@@ -17,16 +17,18 @@ func _process(delta):
 	pass
 
 func _on_body_entered(body):
-	if (body.is_in_group("player")):
+	if (body.is_in_group("player") && !isPressed):
 		isPressed = true
 		updateSprite()
 		get_parent().checkEndOfLevel()
 
 
-func _on_body_exited(body):
-	if (body.is_in_group("player")):
-		isPressed = false
-		updateSprite()
+func _on_body_exited(exitingBody):
+	for body in get_overlapping_bodies():
+		if (body.is_in_group("player")):
+			return 
+	isPressed = false
+	updateSprite()
 
 func updateSprite():
 	if (isPressed):

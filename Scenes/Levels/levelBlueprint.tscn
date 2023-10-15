@@ -1,13 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://b42ejuce0c4c"]
+[gd_scene load_steps=6 format=3 uid="uid://b42ejuce0c4c"]
 
 [ext_resource type="Script" path="res://Scripts/createWall.gd" id="1_71nfw"]
 [ext_resource type="Script" path="res://Scripts/buttonLogic.gd" id="2_kli1l"]
 [ext_resource type="Script" path="res://Scripts/level.gd" id="3_ct44b"]
+[ext_resource type="PackedScene" uid="uid://cjiaqh2uu8fp6" path="res://Scenes/Prefabs/button.tscn" id="3_svr3t"]
+[ext_resource type="PackedScene" uid="uid://dy86b6b8xm78j" path="res://Scenes/Prefabs/player.tscn" id="4_vupuy"]
 
 [node name="levelBluePrint" type="Node2D"]
 
 [node name="createWall" type="Node2D" parent="."]
 script = ExtResource("1_71nfw")
+nbWall = 1000
 metadata/_edit_lock_ = true
 
 [node name="nbWallText" type="RichTextLabel" parent="createWall"]
@@ -19,21 +22,46 @@ text = "0"
 fit_content = true
 scroll_active = false
 
-[node name="buttonLogic" type="Node" parent="."]
+[node name="buttonLogic" type="Node2D" parent="."]
 script = ExtResource("2_kli1l")
+
+[node name="winText" type="RichTextLabel" parent="buttonLogic"]
+visible = false
+offset_right = 100.0
+offset_bottom = 46.0
+bbcode_enabled = true
+text = "[center]Level solved ![/center]"
+fit_content = true
+scroll_active = false
+
+[node name="button" parent="buttonLogic" instance=ExtResource("3_svr3t")]
+position = Vector2(780, 267)
+
+[node name="button2" parent="buttonLogic" instance=ExtResource("3_svr3t")]
+position = Vector2(607, 270)
 
 [node name="playerGroup" type="Node" parent="."]
 
+[node name="player" parent="playerGroup" instance=ExtResource("4_vupuy")]
+position = Vector2(124, 184)
+
+[node name="player2" parent="playerGroup" instance=ExtResource("4_vupuy")]
+position = Vector2(204, 186)
+
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 25.0
+offset_top = 25.0
+offset_right = 128.0
+offset_bottom = 65.0
 script = ExtResource("3_ct44b")
 
 [node name="menuButton" type="Button" parent="HBoxContainer"]
 layout_mode = 2
+text = "menu"
 
 [node name="retryButton" type="Button" parent="HBoxContainer"]
 layout_mode = 2
+text = "retry"
 
 [connection signal="pressed" from="HBoxContainer/menuButton" to="HBoxContainer" method="_on_menu_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/retryButton" to="HBoxContainer" method="_on_retry_button_pressed"]
