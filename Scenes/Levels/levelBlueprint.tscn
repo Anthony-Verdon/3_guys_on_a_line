@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://b42ejuce0c4c"]
+[gd_scene load_steps=4 format=3 uid="uid://b42ejuce0c4c"]
 
 [ext_resource type="Script" path="res://Scripts/createWall.gd" id="1_71nfw"]
 [ext_resource type="Script" path="res://Scripts/buttonLogic.gd" id="2_kli1l"]
+[ext_resource type="Script" path="res://Scripts/level.gd" id="3_ct44b"]
 
 [node name="levelBluePrint" type="Node2D"]
 
@@ -10,10 +11,29 @@ script = ExtResource("1_71nfw")
 metadata/_edit_lock_ = true
 
 [node name="nbWallText" type="RichTextLabel" parent="createWall"]
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 25.0
+offset_top = 65.0
+offset_right = 65.0
+offset_bottom = 105.0
+text = "0"
+fit_content = true
+scroll_active = false
 
 [node name="buttonLogic" type="Node" parent="."]
 script = ExtResource("2_kli1l")
 
 [node name="playerGroup" type="Node" parent="."]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("3_ct44b")
+
+[node name="menuButton" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="retryButton" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+
+[connection signal="pressed" from="HBoxContainer/menuButton" to="HBoxContainer" method="_on_menu_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/retryButton" to="HBoxContainer" method="_on_retry_button_pressed"]

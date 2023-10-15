@@ -37,5 +37,10 @@ grow_vertical = 2
 layout_mode = 2
 text = "levelOne"
 
+[node name="tutorialButton" type="Button" parent="levelsButtonsContainer"]
+layout_mode = 2
+text = "Tutorial"
+
 [connection signal="pressed" from="menuButton" to="." method="_on_menu_button_pressed"]
 [connection signal="pressed" from="levelsButtonsContainer/levelOneButton" to="." method="_on_level_one_button_pressed"]
+[connection signal="pressed" from="levelsButtonsContainer/tutorialButton" to="." method="_on_tutorial_button_pressed"]

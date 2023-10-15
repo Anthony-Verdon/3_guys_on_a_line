@@ -13,5 +13,5 @@ func checkEndOfLevel():
 	for button in get_children():
 		if (!button.isPressed):
 			return
-	print("all buttons are pressed")
-	get_tree().change_scene_to_file("res://Scenes/menu.tscn")
+	if (get_tree().current_scene.name != "tutorial"):
+		get_tree().change_scene_to_file("res://Scenes/menu.tscn")
