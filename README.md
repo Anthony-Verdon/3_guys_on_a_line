@@ -4,7 +4,7 @@ A little game made for the minijam143.
 
 The theme was "ink", and the limitation was "The player must control multiples entities". For the theme, the player can draw line, and for the limitation ... you got 3 players, so it's pretty obvious I think 
 
-# Assets :
+## Assets :
 They come from Keney Assets (https://kenney.itch.io/kenney-game-assets)
 
 ## possible upgrades :
